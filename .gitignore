@@ -1,4 +1,6 @@
 #стандартный гитигнор, что тут смотреть?
-/bin
-/obj
+/Enigma/bin
+/Enigma/obj
+/Ramzai/bin
+/Ramzai/obj
 /.vs

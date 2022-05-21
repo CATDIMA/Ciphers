@@ -90,9 +90,9 @@
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 21);
+            this.label1.Size = new System.Drawing.Size(119, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nachrichtentext";
+            this.label1.Text = "Message text";
             // 
             // inputTextBox
             // 
@@ -115,9 +115,9 @@
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 314);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 21);
+            this.label2.Size = new System.Drawing.Size(152, 21);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Verschlüsselungsschlüssel:";
+            this.label2.Text = "Encryption Key:";
             // 
             // cipherButton
             // 
@@ -128,7 +128,7 @@
             this.cipherButton.Name = "cipherButton";
             this.cipherButton.Size = new System.Drawing.Size(148, 28);
             this.cipherButton.TabIndex = 5;
-            this.cipherButton.Text = "Verschlüsseln";
+            this.cipherButton.Text = "Encrypt";
             this.cipherButton.UseVisualStyleBackColor = false;
             this.cipherButton.Click += new System.EventHandler(this.cipherButton_Click);
             // 
@@ -163,9 +163,9 @@
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(465, 534);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 21);
+            this.label4.Size = new System.Drawing.Size(117, 21);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Patchfeld";
+            this.label4.Text = "Patch Panel";
             // 
             // patch1
             // 
@@ -306,9 +306,9 @@
             this.label6.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(465, 317);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 21);
+            this.label6.Size = new System.Drawing.Size(67, 21);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Rotoren";
+            this.label6.Text = "Rotors";
             // 
             // label7
             // 
@@ -317,9 +317,9 @@
             this.label7.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(626, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 21);
+            this.label7.Size = new System.Drawing.Size(91, 21);
             this.label7.TabIndex = 25;
-            this.label7.Text = "Reflektor";
+            this.label7.Text = "Reflector";
             // 
             // reflectorBox
             // 
@@ -374,7 +374,7 @@
             // 
             this.key3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.key3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.key3.Location = new System.Drawing.Point(266, 312);
+            this.key3.Location = new System.Drawing.Point(176, 312);
             this.key3.Maximum = new decimal(new int[] {
             25,
             0,
@@ -388,7 +388,7 @@
             // 
             this.key2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.key2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.key2.Location = new System.Drawing.Point(312, 312);
+            this.key2.Location = new System.Drawing.Point(222, 312);
             this.key2.Maximum = new decimal(new int[] {
             25,
             0,
@@ -402,7 +402,7 @@
             // 
             this.key1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.key1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.key1.Location = new System.Drawing.Point(358, 312);
+            this.key1.Location = new System.Drawing.Point(268, 312);
             this.key1.Maximum = new decimal(new int[] {
             25,
             0,
@@ -489,7 +489,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(275, 292);
+            this.label10.Location = new System.Drawing.Point(185, 292);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(14, 15);
             this.label10.TabIndex = 42;
@@ -500,7 +500,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(318, 292);
+            this.label11.Location = new System.Drawing.Point(228, 292);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(14, 15);
             this.label11.TabIndex = 41;
@@ -511,7 +511,7 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(365, 292);
+            this.label12.Location = new System.Drawing.Point(275, 292);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(14, 15);
             this.label12.TabIndex = 40;
