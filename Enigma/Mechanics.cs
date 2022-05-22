@@ -6,13 +6,25 @@ namespace Mechanics
 {
     static public class Enigma
     {
+        //с какой позиции в юникоде начинаются английские буквы
         public const int SHIFT = 65;
+
+        //сколько английских букв в алфавите
         public const int ALPHABET_LENGHT = 26;
+
+        //хранилище роторов
         static private Rotor[] rotors = new Rotor[3];
+
+        //тут рефлектор лежит
         static private Reflector reflector = null;
+
+        //начальные позиции роторов
         static private int[] initPos = new int[3];
+
+        //сам шифр
         static private string encryptedText = "";
 
+        //реализация Modulo. В шарпах такого нету...
         static private int mod(int num1, int num2)
         {
             int answer = num1 % num2;
@@ -22,22 +34,31 @@ namespace Mechanics
             }
             return answer;
         }
+
+        //номер буквы
         static public int getCharacterNumber(char ch)
         {
             return (int)(ch - SHIFT);
         }
+
+        //буква по номеру
         static public char getCharacterByNumber(int number)
         {
             return (char)(number + SHIFT);
         }
+
+        //установить начальные позиции роторов
         static public void setInitPos(int pos1, int pos2, int pos3)
         {
             initPos[0] = pos1;
             initPos[1] = pos2;
             initPos[2] = pos3;
         }
+
+        //установить типы роторов
         static public bool setRotorsType(int[] types)
         {
+            //все роторы должны быть разные
             if(types[0] == types[1] || types[1] == types[2] || types[2] == types[0])
             {
                 return false;
@@ -46,6 +67,7 @@ namespace Mechanics
             {
                 for(int i = 0; i < rotors.Length; i++)
                 {
+                    //добавление выбранных типов
                     switch (types[i])
                     {
                         case 1:
@@ -78,6 +100,8 @@ namespace Mechanics
             }
             
         }
+
+        //установка рефлектора
         static public bool setReflectorType(int type)
         {
             if (type == -1)
@@ -205,10 +229,13 @@ namespace Mechanics
         }
     }
 
+    //абстрактный рефлектор
     abstract public class Reflector
     {
+        //табличка символов
         protected KeyValuePair<int, int>[] reflectionTable = null;
 
+        //пропустить символ через рефлектор
         public virtual int passThroughTheReflector(int input)
         {
             int output = -1;
@@ -232,6 +259,7 @@ namespace Mechanics
         }
     }
 
+    //абстрактный ротор
     abstract public class Rotor
     {
         protected int position = 0;
@@ -242,11 +270,14 @@ namespace Mechanics
         public int Position
         { get { return position; } set { position = value; } }
 
+        //пропустить символ от входа к рефлектору
         public virtual int passThroughTheRotor(int input)
         {
             char[] chars = table.ToCharArray();
             return (int)chars[input] - Enigma.SHIFT;
         }
+
+        //пропустить символ от рефлектора к выходу
         public virtual int passThroughTheRotorReverse(int input)
         {
             int result = -1;
@@ -260,6 +291,8 @@ namespace Mechanics
             }
             return result;
         }
+
+        //сдвинуть ротор вперед на 1
         public virtual void increment()
         {
             if (position < 25)
@@ -271,6 +304,9 @@ namespace Mechanics
                 position = 0;
             }
         }
+
+        //при сдвиге ротор может двигать следующий ротор
+        //нужно ли его двигать? Функция подскажет
         public virtual bool incrementAndCheck()
         {
             increment();
@@ -288,12 +324,17 @@ namespace Mechanics
 
     public class Rotor1 : Rotor
     {
+        //конструктор
         public Rotor1(int pos)
         {
+            //начальная позиция
             position = pos;
+            //символ, при котором данный тип ротора сдвинет следующий ротор
             specialChar = 'R';
+            //таблица (строка же) преобразований ротора
             table = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
         }
+        //следующие типы роторов оформлены точно так же
     }
 
     public class Rotor2 : Rotor
@@ -373,6 +414,7 @@ namespace Mechanics
     {
         public Reflector1()
         {
+            //табличка рефлектора
             this.reflectionTable = new KeyValuePair<int, int>[13] {
                 new KeyValuePair<int, int>('A', 'Y'),
                 new KeyValuePair<int, int>('B', 'R'),
@@ -388,6 +430,7 @@ namespace Mechanics
                 new KeyValuePair<int, int>('T', 'Z'),
                 new KeyValuePair<int, int>('V', 'W')
             };
+            //следующие типы аналогичны
         }
     }
 
@@ -459,15 +502,20 @@ namespace Mechanics
 
     public static class PatchPanel
     {
+        //информация о заменяемых символах
         private static KeyValuePair<int, int>[] patchPanel = new KeyValuePair<int, int>[6];
+
+        //инициализация патч-панели. Без вызова этого работать не будет
         public static bool Init(ref List<TextBox> patches)
         {
+            //правильно ли переданы текстбоксы
             if(patches == null || patches.Count != 12)
             {
                 return false;
             }
             else
             {
+                //составление таблицы замен
                 int j = 0;
                 for(int i = 0; i < patches.Count; i++)
                 {
@@ -481,6 +529,8 @@ namespace Mechanics
                 return true;
             }
         }
+
+        //пропустить символ через патч-панель
         public static int passThroughPanel(int symbol)
         {
             int output = symbol;
