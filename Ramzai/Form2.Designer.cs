@@ -51,7 +51,7 @@
             // inputTextBox
             // 
             this.inputTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.inputTextBox.Location = new System.Drawing.Point(19, 49);
+            this.inputTextBox.Location = new System.Drawing.Point(19, 34);
             this.inputTextBox.Multiline = true;
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(410, 620);
@@ -60,7 +60,7 @@
             // outputTextBox
             // 
             this.outputTextBox.BackColor = System.Drawing.Color.White;
-            this.outputTextBox.Location = new System.Drawing.Point(586, 49);
+            this.outputTextBox.Location = new System.Drawing.Point(586, 34);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
@@ -69,7 +69,7 @@
             // 
             // cipherButton
             // 
-            this.cipherButton.Location = new System.Drawing.Point(436, 75);
+            this.cipherButton.Location = new System.Drawing.Point(435, 60);
             this.cipherButton.Name = "cipherButton";
             this.cipherButton.Size = new System.Drawing.Size(145, 25);
             this.cipherButton.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(435, 106);
+            this.clearButton.Location = new System.Drawing.Point(435, 91);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(145, 22);
             this.clearButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // gammaTextBox
             // 
-            this.gammaTextBox.Location = new System.Drawing.Point(435, 49);
+            this.gammaTextBox.Location = new System.Drawing.Point(435, 34);
             this.gammaTextBox.Name = "gammaTextBox";
             this.gammaTextBox.Size = new System.Drawing.Size(145, 20);
             this.gammaTextBox.TabIndex = 4;
@@ -97,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(433, 33);
+            this.label1.Location = new System.Drawing.Point(433, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 5;
@@ -106,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 29);
+            this.label2.Location = new System.Drawing.Point(20, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 13);
             this.label2.TabIndex = 6;
@@ -115,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(586, 33);
+            this.label3.Location = new System.Drawing.Point(586, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 7;
@@ -123,7 +123,7 @@
             // 
             // pointerPart1
             // 
-            this.pointerPart1.Location = new System.Drawing.Point(516, 597);
+            this.pointerPart1.Location = new System.Drawing.Point(516, 582);
             this.pointerPart1.Maximum = new decimal(new int[] {
             999,
             0,
@@ -145,7 +145,7 @@
             // 
             // pointerPart2
             // 
-            this.pointerPart2.Location = new System.Drawing.Point(516, 623);
+            this.pointerPart2.Location = new System.Drawing.Point(516, 608);
             this.pointerPart2.Maximum = new decimal(new int[] {
             9,
             0,
@@ -167,7 +167,7 @@
             // 
             // pointerPart3
             // 
-            this.pointerPart3.Location = new System.Drawing.Point(516, 649);
+            this.pointerPart3.Location = new System.Drawing.Point(516, 634);
             this.pointerPart3.Maximum = new decimal(new int[] {
             9,
             0,
@@ -190,7 +190,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(432, 599);
+            this.label4.Location = new System.Drawing.Point(432, 584);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 11;
@@ -199,7 +199,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(432, 625);
+            this.label5.Location = new System.Drawing.Point(432, 610);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 12;
@@ -208,7 +208,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(432, 651);
+            this.label6.Location = new System.Drawing.Point(432, 636);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 13;
@@ -217,7 +217,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(435, 581);
+            this.label7.Location = new System.Drawing.Point(435, 566);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(138, 13);
             this.label7.TabIndex = 14;

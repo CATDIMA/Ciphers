@@ -18,9 +18,12 @@ namespace Functions
         // остальные от 80 до 99 (номер строки; номер столбца)
         // Чтобы не грузить машину бестолковыми вычислениями постоянной таблицы,
         // заполним ее сами
-        private static Dictionary<char, int> symbolCipherPairs = new Dictionary<char, int>();
-        private static int[] pointerDigits = new int[5];
+        private static Dictionary<char, int> symbolCodePairs = new Dictionary<char, int>();
+
+        //указатель на начало гаммы
         private static int pointer;
+
+        //Modulo
         private static int mod(int num1, int num2)
         {
             int answer = num1 % num2;
@@ -31,16 +34,18 @@ namespace Functions
             return answer;
         }
 
+        //получить число из массива его разрядов
         private static int toIntFromArray(int[] arr)
         {
             int answer = 0;
-            for(int i = arr.Length - 1; i >= 0; i--)
+            for (int i = arr.Length - 1; i >= 0; i--)
             {
                 answer += arr[i] * (int)System.Math.Pow(10, i);
             }
             return answer;
         }
 
+        //разбить число на разряды и записать в массив
         private static int[] toIntArray(string str)
         {
             char[] chars = str.ToCharArray();
@@ -52,38 +57,40 @@ namespace Functions
             return result;
         }
 
+        //заполнение таблички
         public static void Init()
         {
-            symbolCipherPairs.Add('A', 5);
-            symbolCipherPairs.Add('B', 87);
-            symbolCipherPairs.Add('C', 80);
-            symbolCipherPairs.Add('D', 83);
-            symbolCipherPairs.Add('E', 3);
-            symbolCipherPairs.Add('F', 92);
-            symbolCipherPairs.Add('G', 95);
-            symbolCipherPairs.Add('H', 98);
-            symbolCipherPairs.Add('I', 1);
-            symbolCipherPairs.Add('J', 84);
-            symbolCipherPairs.Add('K', 88);
-            symbolCipherPairs.Add('L', 93);
-            symbolCipherPairs.Add('M', 96);
-            symbolCipherPairs.Add('N', 7);
-            symbolCipherPairs.Add('O', 2);
-            symbolCipherPairs.Add('P', 85);
-            symbolCipherPairs.Add('Q', 89);
-            symbolCipherPairs.Add('R', 4);
-            symbolCipherPairs.Add('S', 0);
-            symbolCipherPairs.Add('T', 6);
-            symbolCipherPairs.Add('U', 82);
-            symbolCipherPairs.Add('V', 99);
-            symbolCipherPairs.Add('W', 91);
-            symbolCipherPairs.Add('X', 81);
-            symbolCipherPairs.Add('Y', 97);
-            symbolCipherPairs.Add('Z', 86);
-            symbolCipherPairs.Add('.', 90);
-            symbolCipherPairs.Add('/', 94);
+            symbolCodePairs.Add('A', 5);
+            symbolCodePairs.Add('B', 87);
+            symbolCodePairs.Add('C', 80);
+            symbolCodePairs.Add('D', 83);
+            symbolCodePairs.Add('E', 3);
+            symbolCodePairs.Add('F', 92);
+            symbolCodePairs.Add('G', 95);
+            symbolCodePairs.Add('H', 98);
+            symbolCodePairs.Add('I', 1);
+            symbolCodePairs.Add('J', 84);
+            symbolCodePairs.Add('K', 88);
+            symbolCodePairs.Add('L', 93);
+            symbolCodePairs.Add('M', 96);
+            symbolCodePairs.Add('N', 7);
+            symbolCodePairs.Add('O', 2);
+            symbolCodePairs.Add('P', 85);
+            symbolCodePairs.Add('Q', 89);
+            symbolCodePairs.Add('R', 4);
+            symbolCodePairs.Add('S', 0);
+            symbolCodePairs.Add('T', 6);
+            symbolCodePairs.Add('U', 82);
+            symbolCodePairs.Add('V', 99);
+            symbolCodePairs.Add('W', 91);
+            symbolCodePairs.Add('X', 81);
+            symbolCodePairs.Add('Y', 97);
+            symbolCodePairs.Add('Z', 86);
+            symbolCodePairs.Add('.', 90);
+            symbolCodePairs.Add('/', 94);
         }
 
+        //удаление пробелов
         public static string removeSpaces(string str)
         {
             string result = "";
@@ -97,15 +104,20 @@ namespace Functions
             return result;
         }
 
+        //получить предварительный шифр
         public static int[] getPreliminaryCipher(char[] chars)
         {
-            //косяк на 7-8 итерации
+            //хранит предв. шифр
             int[] result = null;
+
+            //длина пред. шифра
             int length = 0;
-            foreach(char ch in chars)
+
+            //вычисляем длину шифра
+            foreach (char ch in chars)
             {
                 int temp;
-                symbolCipherPairs.TryGetValue(ch, out temp);
+                symbolCodePairs.TryGetValue(ch, out temp);
                 if (temp < 10)
                 {
                     length++;
@@ -115,7 +127,9 @@ namespace Functions
                     length += 2;
                 }
             }
-            if(length % 5 != 0)
+
+            //делаем длину массива кратной 5
+            if (length % 5 != 0)
             {
                 result = new int[(length / 5 + 1) * 5];
             }
@@ -124,12 +138,14 @@ namespace Functions
                 result = new int[length];
             }
 
+            //создание пред. шифра
+            //в соответствие каждой букве ставится ее код из таблицы
             int j = 0;
             int code;
             for (int i = 0; i < chars.Length; i++)
             {
-                symbolCipherPairs.TryGetValue(chars[i], out code);
-                if(code < 10)
+                symbolCodePairs.TryGetValue(chars[i], out code);
+                if (code < 10)
                 {
                     result[j] = code;
                     j++;
@@ -141,55 +157,77 @@ namespace Functions
                     j += 2;
                 }
             }
+
+            //возврат окружению пред. шифра
             return result;
         }
 
+        //вычислить указатель из трех частей (страница, строка, столбец)
         public static void setPointer(int part1, int part2, int part3)
         {
-            pointer  = part1 * 100;
+            pointer = part1 * 100;
             pointer += part2 * 10;
             pointer += part3;
         }
 
+        //создание шифра
         public static int[] getCipher(int[] preCipher, string gamma)
         {
+            //для шифра
             int[] cipher = new int[preCipher.Length + 5];
+
+            //для гаммы
             int[] intGamma = toIntArray(gamma);
+
+            //временное хранилище для 5 цифр
             int[] tempArr = new int[5];
+
+            //эти переменные нужны для шифрования указателя
+            //переменная для четвертой с начала пятерки символов
             int fourthBlock = 0;
+            //для третьей с конца пятерки
             int thirdFromEndBlock = 0;
 
+            //сложение цифр пред. шифра с цифрами гаммы по модулю 10
             int j = 5;
-            for(int i = 0; i < intGamma.Length; i++)
+            for (int i = 0; i < intGamma.Length; i++)
             {
                 cipher[j] = mod(preCipher[i] + intGamma[i], 10);
                 j++;
             }
 
+            //запись во временный архив четвертой пятерки
             j = 0;
-            for(int i = 5 * 4; i < 5 * 4 + 5; i++)
+            for (int i = 5 * 4; i < 5 * 4 + 5; i++)
             {
                 tempArr[j] = cipher[i];
                 j++;
             }
+            //прервращение массива в число
             fourthBlock = toIntFromArray(tempArr);
 
+            //запись во временный архив третьей с конца пятерки
             j = 0;
-            for(int i = cipher.Length - 5 * 3; i < cipher.Length; i++)
+            for (int i = cipher.Length - 5 * 3; i < cipher.Length; i++)
             {
                 tempArr[j] = cipher[i];
                 j++;
             }
+            //превращение массива в число
             thirdFromEndBlock = toIntFromArray(tempArr);
 
+            //шифрование указателя на начало гаммы
             pointer = mod(pointer + fourthBlock, 10);
             pointer = mod(pointer + thirdFromEndBlock, 10);
 
+            //разбиение указателя на разряды и запись в шифр
             cipher[0] = pointer / 10000;
             cipher[1] = pointer % 10000 / 1000;
             cipher[2] = pointer % 1000 / 100;
             cipher[3] = pointer % 100 / 10;
             cipher[4] = pointer % 10;
+
+            //возврат шифра
             return cipher;
         }
     }

@@ -15,7 +15,7 @@ namespace Ramzai
     public partial class Form2 : Form
     {
         private Regex gammaRegex = new Regex("[0-9]");
-        private Regex textRegex = new Regex("[A-Z\\/]");
+        private Regex textRegex = new Regex("[A-Z0-9\\/]");
         public Form2()
         {
             InitializeComponent();
